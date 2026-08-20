@@ -19,7 +19,13 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
+      "@auth/*": ["./src/modules/auth/*"],
+      "@common/*": ["./src/modules/common/*"],
+      "@pokemon/*": ["./src/modules/pokemon/*"],
+      "@configs/*": ["./src/configs/*"],
+      "@i18n/*": ["./src/i18n/*"],
+      "@/*": ["./src/*"],
+      "src/*": ["./src/*"]
     }
   },
   "include": [
