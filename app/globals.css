@@ -1,26 +1,85 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Base colors */
+  --background: #fffdf7;
+  --foreground: #17161d;
+  --surface: #f3f4f7;
+  --border: #17161d;
+
+  /* Accents */
+  --primary: #e14b39;
+  --primary-hover: #c74435;
+
+  /* Rarity tiers */
+  --rarity-common: #8b8a96;
+  --rarity-uncommon: #4c9a3f;
+  --rarity-rare: #3b82f6;
+  --rarity-epic: #9964e5;
+  --rarity-legendary: #d9a41a;
+
+  /* Decorative stamps */
+  --blob-purple: #f0e7f4;
+  --blob-yellow: #f4e9d0;
+  --blob-coral: #ffded0;
+
+  /* Card background */
+  --card-grass: #dbe9d2;
+  --card-electric: #f4e9d0;
+  --card-fire: #ffded0;
+  --card-fairy: #f8e0e3;
+  --card-water: #d8e4f5;
+  --card-poison: #e8d9ea;
+  --card-ground: #eee3d0;
+  --card-psychic: #fcdbde;
+  --card-fighting: #f7d9ce;
+  --card-bug: #e2e7ce;
+  --card-rock: #e9e3d4;
+  --card-ghost: #d8d5e2;
+  --card-ice: #dbeae9;
+  --card-normal: #e7e5dc;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-border-main: var(--border);
+
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+
+  --color-rarity-common: var(--rarity-common);
+  --color-rarity-uncommon: var(--rarity-uncommon);
+  --color-rarity-rare: var(--rarity-rare);
+  --color-rarity-epic: var(--rarity-epic);
+  --color-rarity-legendary: var(--rarity-legendary);
+
+  --color-blob-purple: var(--blob-purple);
+  --color-blob-yellow: var(--blob-yellow);
+  --color-blob-coral: var(--blob-coral);
+
+  --color-card-grass: var(--card-grass);
+  --color-card-electric: var(--card-electric);
+  --color-card-fire: var(--card-fire);
+  --color-card-fairy: var(--card-fairy);
+  --color-card-water: var(--card-water);
+  --color-card-poison: var(--card-poison);
+  --color-card-ground: var(--card-ground);
+  --color-card-psychic: var(--card-psychic);
+  --color-card-fighting: var(--card-fighting);
+  --color-card-bug: var(--card-bug);
+  --color-card-rock: var(--card-rock);
+  --color-card-ghost: var(--card-ghost);
+  --color-card-ice: var(--card-ice);
+  --color-card-normal: var(--card-normal);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  margin: 0;
 }
