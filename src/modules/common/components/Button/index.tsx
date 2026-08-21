@@ -3,7 +3,7 @@ import { ButtonColorT } from "@common/interfaces/buttonColor";
 import { mergeClasses } from "@common/utils/mergeClasses";
 import { ButtonHTMLAttributes, ReactNode, CSSProperties } from "react";
 
-export interface IButtonProps extends Omit<
+interface IButtonProps extends Omit<
   ButtonHTMLAttributes<HTMLButtonElement>,
   "color"
 > {
