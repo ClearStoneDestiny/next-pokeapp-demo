@@ -30,7 +30,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${chivoMono.variable} h-full antialiased`}
     >
-      <body className="flex">
+      <body className="flex w-full">
         <AppProvider>{children}</AppProvider>
       </body>
     </html>

@@ -33,6 +33,7 @@ const NAV_LINKS: Record<
   ],
 };
 
+// TODO: Add header variations for protected and not protected routes
 export const Header = ({ variant }: { variant: HeaderVariantT }) => {
   const { t } = useTranslation("common", { keyPrefix: "Header" });
 
