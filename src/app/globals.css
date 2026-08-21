@@ -12,6 +12,14 @@
   --primary: #e14b39;
   --primary-hover: #c74435;
 
+  /* Fonts */
+  --normal: 400;
+  --medium: 500;
+  --semibold: 600;
+  --bold: 700;
+  --extrabold: 800;
+  --black: 900;
+
   /* Rarity tiers */
   --rarity-common: #8b8a96;
   --rarity-uncommon: #4c9a3f;
