@@ -1,4 +1,4 @@
-import { RarityBadgeColorT } from "@common/interfaces/rarityBadgeColor";
+import { RarityBadgeColorT } from "@common/interfaces/rarityBadge";
 import { mergeClasses } from "@common/utils/mergeClasses";
 
 interface IRarityBadgeProps {

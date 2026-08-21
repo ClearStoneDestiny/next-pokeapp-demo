@@ -1,4 +1,4 @@
-import { BadgeColorT } from "@common/interfaces/badgeColor";
+import { BadgeColorT } from "@common/interfaces/badge";
 import { mergeClasses } from "@common/utils/mergeClasses";
 import { forwardRef, HTMLAttributes, ReactNode } from "react";
 

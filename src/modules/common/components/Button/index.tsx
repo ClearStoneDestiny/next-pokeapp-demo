@@ -1,6 +1,8 @@
-import { ButtonAnimationT } from "@common/interfaces/buttonAnimation";
-import { ButtonColorT } from "@common/interfaces/buttonColor";
-import { ButtonVariantT } from "@common/interfaces/buttonVariant";
+import {
+  ButtonVariantT,
+  ButtonColorT,
+  ButtonAnimationT,
+} from "@common/interfaces/button";
 import { mergeClasses } from "@common/utils/mergeClasses";
 import { ButtonHTMLAttributes, ReactNode, CSSProperties } from "react";
 
@@ -48,7 +50,7 @@ const animationStyles: Record<
   },
 };
 
-export function Button({
+export const Button = ({
   color = "red",
   variant = "filled",
   shadow = false,
@@ -58,7 +60,7 @@ export function Button({
   style,
   children,
   ...props
-}: IButtonProps) {
+}: IButtonProps) => {
   const isFilled = variant === "filled";
 
   return (
@@ -79,4 +81,4 @@ export function Button({
       {children}
     </button>
   );
-}
+};

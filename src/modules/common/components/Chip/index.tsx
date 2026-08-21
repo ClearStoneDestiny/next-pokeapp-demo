@@ -1,4 +1,4 @@
-import { ChipColorT } from "@common/interfaces/chipColor";
+import { ChipColorT } from "@common/interfaces/chip";
 import { mergeClasses } from "@common/utils/mergeClasses";
 import { forwardRef, HTMLAttributes, ReactNode } from "react";
 
