@@ -7,18 +7,19 @@ import { mergeClasses } from "@common/utils/mergeClasses";
 import { ElementType, ComponentPropsWithoutRef, ReactNode } from "react";
 
 const variantStyles: Record<TypographyVariantT, string> = {
-  display: "mt-[22px] text-balance",
-  body: "mt-6 max-w-[470px] text-body",
+  display: "text-balance",
+  body: "max-w-[470px] text-body",
   mono: "text-[12px] font-mono",
 };
 
 const sizeStyles: Record<TypographySizeT, string> = {
   xs: "text-[12px]",
-  sm: "text-[14px]",
-  md: "text-[16px]",
+  sm: "text-[15px]",
+  md: "text-[17px]",
   lg: "text-[19px]",
-  xl: "text-[24px]",
-  "2xl": "text-[40px]",
+  xl: "text-[21px]",
+  "2xl": "text-[24px]",
+  "3xl": "text-[40px]",
   display: "text-[70px] leading-[0.94] tracking-[-0.045em]",
 };
 

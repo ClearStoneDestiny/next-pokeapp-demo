@@ -71,7 +71,7 @@ export const Button = ({
         "transition-all duration-150",
         isFilled && "border-[3px] border-border-main rounded-full px-5 py-2.5",
         colorStyles[variant][color],
-        isFilled && shadow && "shadow-[rgb(23,22,29)_4px_4px_0px]",
+        isFilled && shadow && "shadow-[4px_4px_0px_#17161d]",
         animation !== "none" && animationStyles[variant][animation],
         className,
       )}

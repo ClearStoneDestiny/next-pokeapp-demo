@@ -24,9 +24,9 @@ export const Badge = forwardRef<HTMLDivElement, IBadgeProps>(
       <div
         ref={ref}
         className={mergeClasses(
-          "grid place-items-center text-lg font-black h-[44px] w-[44px] border-[3px] border-border-main rounded-[12px]",
+          "grid place-items-center text-lg font-black h-[44px] w-[44px] border-[3px] border-border-main rounded-[9px]",
           colorStyles[color],
-          shadow && "shadow-[rgb(23,22,29)_4px_4px_0px]",
+          shadow && "shadow-[3px_3px_0px_#17161d]",
           className,
         )}
         {...props}

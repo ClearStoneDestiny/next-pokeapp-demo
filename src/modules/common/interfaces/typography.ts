@@ -7,6 +7,7 @@ export type TypographySizeT =
   | "lg"
   | "xl"
   | "2xl"
+  | "3xl"
   | "display";
 
 export type TypographyWeightT =

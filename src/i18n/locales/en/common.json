@@ -1,1 +1,16 @@
-{}
+{
+  "Header": {
+    "headerTitle": "Cardex",
+    "signIn": "Sign in",
+    "login": "Start collecting",
+
+    "navigation": {
+      "howItWorks": "How it works",
+      "pricing": "Pricing",
+      "dex": "Dex",
+      "catalogue": "Dex catalogue",
+      "collection": "My collection",
+      "shop": "Shop"
+    }
+  }
+}
