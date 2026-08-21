@@ -41,6 +41,26 @@
   --card-dark: #d9d6d3;
   --card-steel: #e1e2e0;
   --card-fairy: #f8e0e3;
+
+  /* Chip background */
+  --chip-normal: #8e8b78;
+  --chip-fire: #e8582c;
+  --chip-water: #3d7ce0;
+  --chip-electric: #c99a12;
+  --chip-grass: #4c9a3f;
+  --chip-ice: #3f9fb2;
+  --chip-fighting: #c0452f;
+  --chip-poison: #8345a1;
+  --chip-ground: #a97c2e;
+  --chip-flying: #6f83d4;
+  --chip-psychic: #d94a80;
+  --chip-bug: #74901c;
+  --chip-rock: #96814c;
+  --chip-ghost: #63539f;
+  --chip-dragon: #5a52c9;
+  --chip-dark: #4f4750;
+  --chip-steel: #6f7a88;
+  --chip-fairy: #cf6b98;
 }
 
 @theme inline {

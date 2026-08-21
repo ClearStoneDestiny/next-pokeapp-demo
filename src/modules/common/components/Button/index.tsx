@@ -44,7 +44,7 @@ export function Button({
     <button
       className={mergeClasses(
         "inline-flex items-center justify-center",
-        "border-[3px] border-border-main rounded-[40px]",
+        "border-[3px] border-border-main rounded-full",
         "font-extrabold text-[15px] px-5 py-2.5",
         "transition-all duration-150",
         colorStyles[color],
