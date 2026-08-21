@@ -1,9 +1,12 @@
 import { BadgeColorT } from "@common/interfaces/badgeColor";
 import { mergeClasses } from "@common/utils/mergeClasses";
+import { forwardRef, HTMLAttributes, ReactNode } from "react";
 
-interface IBadgeProps {
+interface IBadgeProps extends HTMLAttributes<HTMLDivElement> {
   color?: BadgeColorT;
   text?: string;
+  shadow?: boolean;
+  children?: ReactNode;
 }
 
 const colorStyles: Record<BadgeColorT, string> = {
@@ -12,15 +15,24 @@ const colorStyles: Record<BadgeColorT, string> = {
   black: "bg-foreground text-background",
 };
 
-export const Badge = ({ color = "red", text = "" }: IBadgeProps) => {
-  return (
-    <div
-      className={mergeClasses(
-        "grid place-items-center text-lg font-black h-[44px] w-[44px] border-[3px] border-border-main rounded-[12px]",
-        colorStyles[color],
-      )}
-    >
-      {text}
-    </div>
-  );
-};
+export const Badge = forwardRef<HTMLDivElement, IBadgeProps>(
+  (
+    { color = "red", text, shadow = false, className, children, ...props },
+    ref,
+  ) => {
+    return (
+      <div
+        ref={ref}
+        className={mergeClasses(
+          "grid place-items-center text-lg font-black h-[44px] w-[44px] border-[3px] border-border-main rounded-[12px]",
+          colorStyles[color],
+          shadow && "shadow-[rgb(23,22,29)_4px_4px_0px]",
+          className,
+        )}
+        {...props}
+      >
+        {children ?? text}
+      </div>
+    );
+  },
+);
