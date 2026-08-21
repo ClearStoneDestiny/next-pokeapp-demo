@@ -6,10 +6,19 @@
   --foreground: #17161d;
   --surface: #f3f4f7;
   --border: #17161d;
+  --body: #575662;
 
   /* Accents */
   --primary: #e14b39;
   --primary-hover: #c74435;
+
+  /* Fonts */
+  --normal: 400;
+  --medium: 500;
+  --semibold: 600;
+  --bold: 700;
+  --extrabold: 800;
+  --black: 900;
 
   /* Rarity tiers */
   --rarity-common: #8b8a96;
@@ -24,20 +33,43 @@
   --blob-coral: #ffded0;
 
   /* Card background */
-  --card-grass: #dbe9d2;
-  --card-electric: #f4e9d0;
+  --card-normal: #e7e5dc;
   --card-fire: #ffded0;
-  --card-fairy: #f8e0e3;
   --card-water: #d8e4f5;
+  --card-electric: #f4e9d0;
+  --card-grass: #dbe9d2;
+  --card-fighting: #f7d9ce;
+  --card-ice: #dbeae9;
   --card-poison: #e8d9ea;
   --card-ground: #eee3d0;
   --card-psychic: #fcdbde;
-  --card-fighting: #f7d9ce;
   --card-bug: #e2e7ce;
   --card-rock: #e9e3d4;
   --card-ghost: #d8d5e2;
-  --card-ice: #dbeae9;
-  --card-normal: #e7e5dc;
+  --card-dragon: #dadbf1;
+  --card-dark: #d9d6d3;
+  --card-steel: #e1e2e0;
+  --card-fairy: #f8e0e3;
+
+  /* Chip background */
+  --chip-normal: #8e8b78;
+  --chip-fire: #e8582c;
+  --chip-water: #3d7ce0;
+  --chip-electric: #c99a12;
+  --chip-grass: #4c9a3f;
+  --chip-ice: #3f9fb2;
+  --chip-fighting: #c0452f;
+  --chip-poison: #8345a1;
+  --chip-ground: #a97c2e;
+  --chip-flying: #6f83d4;
+  --chip-psychic: #d94a80;
+  --chip-bug: #74901c;
+  --chip-rock: #96814c;
+  --chip-ghost: #63539f;
+  --chip-dragon: #5a52c9;
+  --chip-dark: #4f4750;
+  --chip-steel: #6f7a88;
+  --chip-fairy: #cf6b98;
 }
 
 @theme inline {
@@ -59,20 +91,23 @@
   --color-blob-yellow: var(--blob-yellow);
   --color-blob-coral: var(--blob-coral);
 
-  --color-card-grass: var(--card-grass);
-  --color-card-electric: var(--card-electric);
+  --color-card-normal: var(--card-normal);
   --color-card-fire: var(--card-fire);
-  --color-card-fairy: var(--card-fairy);
   --color-card-water: var(--card-water);
+  --color-card-electric: var(--card-electric);
+  --color-card-grass: var(--card-grass);
+  --color-card-fighting: var(--card-fighting);
+  --color-card-ice: var(--card-ice);
   --color-card-poison: var(--card-poison);
   --color-card-ground: var(--card-ground);
   --color-card-psychic: var(--card-psychic);
-  --color-card-fighting: var(--card-fighting);
   --color-card-bug: var(--card-bug);
   --color-card-rock: var(--card-rock);
   --color-card-ghost: var(--card-ghost);
-  --color-card-ice: var(--card-ice);
-  --color-card-normal: var(--card-normal);
+  --color-card-dragon: var(--card-dragon);
+  --color-card-dark: var(--card-dark);
+  --color-card-steel: var(--card-steel);
+  --color-card-fairy: var(--card-fairy);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
