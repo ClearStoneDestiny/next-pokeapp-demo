@@ -10,11 +10,16 @@ const configs = {
   ROUTES: {
     DASHBOARD: "/dashboard",
     LOGIN: "/login",
+    REGISTER: "/register",
     LANDING: "/",
     PRICING: "/pricing",
     COLLECTIONS: "/collection",
-    POKEMON_DETAILS: (id: number) => `/pokemon/${id}`,
+    POKEMON_DETAILS: "/pokemon",
     SHOP: "/shop",
+  },
+
+  ROUTE_BUILDERS: {
+    POKEMON_DETAILS: (id: number) => `/pokemon/${id}`,
   },
 };
 

@@ -11,7 +11,7 @@ if (!secretKey) {
 
 const encodedKey = new TextEncoder().encode(secretKey);
 
-const SESSION_COOKIE_NAME = "session";
+export const SESSION_COOKIE_NAME = "session";
 const SESSION_DURATION_MS = 7 * 24 * 60 * 60 * 1000;
 
 export type SessionPayloadT = {
@@ -31,7 +31,7 @@ export async function decrypt(token?: string) {
   if (!token) {
     return null;
   }
-  
+
   try {
     const { payload } = await jwtVerify(token, encodedKey, {
       algorithms: ["HS256"],
