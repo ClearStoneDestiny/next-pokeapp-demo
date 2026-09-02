@@ -5,7 +5,8 @@ import { Badge } from "../Badge";
 import { Typography } from "../Typography";
 import { useTranslation } from "react-i18next";
 import { Button } from "../Button";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import configs from "@configs/index";
 
 type HeaderVariantT = "landing" | "app";
 
@@ -38,7 +39,12 @@ export const Header = ({ variant }: { variant: HeaderVariantT }) => {
   const { t } = useTranslation("common", { keyPrefix: "Header" });
 
   const pathname = usePathname();
+  const router = useRouter();
   const links = NAV_LINKS[variant];
+
+  const handleLogin = () => {
+    router.push(configs.ROUTES.LOGIN);
+  };
 
   return (
     <header className="bg-background sticky top-[0px] z-[60] flex items-center justify-between gap-[40px] py-[16px] px-[56px] border-b-[3px] border-border-main">
@@ -82,11 +88,16 @@ export const Header = ({ variant }: { variant: HeaderVariantT }) => {
       {/* Login section */}
       <div className="flex items-center gap-[16px]">
         <Button variant="text" animation="press" className="text-body">
-          <Typography size="sm" weight="semibold">
+          <Typography size="sm" weight="semibold" onClick={handleLogin}>
             {t("signIn")}
           </Typography>
         </Button>
-        <Button shadow={true} animation="press" className="py-[11px] px-[22px]">
+        <Button
+          shadow={true}
+          animation="press"
+          className="py-[11px] px-[22px]"
+          onClick={handleLogin}
+        >
           <Typography size="sm" weight="extrabold">
             {t("login")}
           </Typography>
