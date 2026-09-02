@@ -1,7 +1,11 @@
 import "./styles.css";
 
 interface ISidebarProps {
-  user: number;
+  user: {
+    id: string;
+    name: string | null;
+    email: string;
+  };
   progress: number;
 }
 

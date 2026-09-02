@@ -10,10 +10,7 @@ import {
 import { prisma } from "@lib/prisma";
 import { createSession } from "@lib/session";
 import { redirect } from "next/navigation";
-import { getTranslation } from "@common/index";
 import configs from "@configs/index";
-
-const t = getTranslation("auth");
 
 export async function login(
   _prevState: LoginFormState,
@@ -33,7 +30,7 @@ export async function login(
   const user = await prisma.user.findUnique({ where: { email } });
 
   if (!user || !(await bcrypt.compare(password, user.passwordHash))) {
-    return { message: t("login.invalidPasswordOrEmail") };
+    return { message: "Invalid password or email" };
   }
 
   await createSession(user.id);

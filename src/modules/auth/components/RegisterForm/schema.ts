@@ -1,8 +1,5 @@
-import { getTranslation } from "@common/index";
 import configs from "@configs/index";
 import * as v from "valibot";
-
-const t = getTranslation("auth");
 
 export const RegisterFormFields = {
   NAME: "name",
@@ -11,27 +8,22 @@ export const RegisterFormFields = {
 } as const;
 
 export const registerFormSchema = v.object({
-  [RegisterFormFields.NAME]: v.pipe(
-    v.string(),
-    v.nonEmpty(t("validation.nameRequired")),
-  ),
+  [RegisterFormFields.NAME]: v.pipe(v.string(), v.nonEmpty("Name is required")),
   [RegisterFormFields.EMAIL]: v.pipe(
     v.string(),
-    v.nonEmpty(t("validation.emailRequired")),
-    v.email(t("validation.emailInvalid")),
+    v.nonEmpty("Email is required"),
+    v.email("Please enter a valid email address"),
   ),
   [RegisterFormFields.PASSWORD]: v.pipe(
     v.string(),
-    v.nonEmpty(t("validation.passwordRequired")),
+    v.nonEmpty("Password is required"),
     v.minLength(
       configs.VALIDATION.PASSWORD_MIN_LENGTH,
-      t("validation.passwordMinLength", {
-        passwordLength: configs.VALIDATION.PASSWORD_MIN_LENGTH,
-      }),
+      `Password should be at least ${configs.VALIDATION.PASSWORD_MIN_LENGTH} symbols`,
     ),
     v.regex(
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/,
-      t("validation.passwordRegEx"),
+      "The password must contain uppercase and lowercase letters, as well as a number",
     ),
   ),
 });

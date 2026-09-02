@@ -1,22 +1,20 @@
 import * as v from "valibot";
-import { getTranslation } from "@common/index";
 
 export const LoginFormFields = {
   EMAIL: "email",
   PASSWORD: "password",
 } as const;
 
-const t = getTranslation("auth");
 
 const loginFormSchema = v.object({
   [LoginFormFields.EMAIL]: v.pipe(
     v.string(),
-    v.nonEmpty(t("validation.emailRequired")),
-    v.email(t("validation.emailInvalid")),
+    v.nonEmpty("Email is required"),
+    v.email('Please enter a valid email address'),
   ),
   [LoginFormFields.PASSWORD]: v.pipe(
     v.string(),
-    v.nonEmpty(t("validation.passwordRequired")),
+    v.nonEmpty('Password is required'),
   ),
 });
 

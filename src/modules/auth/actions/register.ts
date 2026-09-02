@@ -10,10 +10,7 @@ import {
 import { prisma } from "@lib/prisma";
 import { createSession } from "@lib/session";
 import { redirect } from "next/navigation";
-import { getTranslation } from "@common/index";
 import configs from "@configs/index";
-
-const t = getTranslation("auth");
 
 export async function register(
   _prevState: RegisterFormState,
@@ -34,7 +31,7 @@ export async function register(
   const existingUser = await prisma.user.findUnique({ where: { email } });
 
   if (existingUser) {
-    return { errors: { email: [t("register.userWithThatEmailExist")] } };
+    return { errors: { email: ["A user with this email already exists"] } };
   }
 
   const passwordHash = await bcrypt.hash(password, 10);
