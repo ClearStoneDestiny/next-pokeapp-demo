@@ -28,13 +28,15 @@ export async function proxy(request: NextRequest) {
   const session = await decrypt(sessionCookie);
 
   if (isProtectedRoute && !session?.userId) {
-    const loginUrl = new URL("/login", request.nextUrl);
+    const loginUrl = new URL(configs.ROUTES.LOGIN, request.nextUrl);
     loginUrl.searchParams.set("from", path);
     return NextResponse.redirect(loginUrl);
   }
 
   if (isPublicOnlyRoute && session?.userId) {
-    return NextResponse.redirect(new URL("/dashboard", request.nextUrl));
+    return NextResponse.redirect(
+      new URL(configs.ROUTES.DASHBOARD, request.nextUrl),
+    );
   }
 
   return NextResponse.next();
