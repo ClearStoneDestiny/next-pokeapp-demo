@@ -5,7 +5,7 @@ import bcrypt from "bcryptjs";
 import {
   RegisterFormFields,
   registerFormSchema,
-  RegisterFormState,
+  RegisterFormStateT,
 } from "@auth/components/RegisterForm/schema";
 import { prisma } from "@lib/prisma";
 import { createSession } from "@lib/session";
@@ -13,9 +13,9 @@ import { redirect } from "next/navigation";
 import configs from "@configs/index";
 
 export async function register(
-  _prevState: RegisterFormState,
+  _prevState: RegisterFormStateT,
   formData: FormData,
-): Promise<RegisterFormState> {
+): Promise<RegisterFormStateT> {
   const validatedFields = v.safeParse(registerFormSchema, {
     [RegisterFormFields.NAME]: formData.get(RegisterFormFields.NAME),
     [RegisterFormFields.EMAIL]: formData.get(RegisterFormFields.EMAIL),

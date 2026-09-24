@@ -5,7 +5,7 @@ import bcrypt from "bcryptjs";
 import {
   LoginFormFields,
   loginFormSchema,
-  LoginFormState,
+  LoginFormStateT,
 } from "@auth/components/LoginForm/schema";
 import { prisma } from "@lib/prisma";
 import { createSession } from "@lib/session";
@@ -13,9 +13,9 @@ import { redirect } from "next/navigation";
 import configs from "@configs/index";
 
 export async function login(
-  _prevState: LoginFormState,
+  _prevState: LoginFormStateT,
   formData: FormData,
-): Promise<LoginFormState> {
+): Promise<LoginFormStateT> {
   const validatedFields = v.safeParse(loginFormSchema, {
     [LoginFormFields.EMAIL]: formData.get(LoginFormFields.EMAIL),
     [LoginFormFields.PASSWORD]: formData.get(LoginFormFields.PASSWORD),
