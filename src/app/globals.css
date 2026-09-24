@@ -38,6 +38,7 @@
   --card-water: #d8e4f5;
   --card-electric: #f4e9d0;
   --card-grass: #dbe9d2;
+  --card-flying: #dee5f6;
   --card-fighting: #f7d9ce;
   --card-ice: #dbeae9;
   --card-poison: #e8d9ea;
@@ -96,6 +97,7 @@
   --color-card-water: var(--card-water);
   --color-card-electric: var(--card-electric);
   --color-card-grass: var(--card-grass);
+  --color-card-flying: var(--card-flying);
   --color-card-fighting: var(--card-fighting);
   --color-card-ice: var(--card-ice);
   --color-card-poison: var(--card-poison);
@@ -117,4 +119,19 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
   margin: 0;
+}
+
+@keyframes card-levitate {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+.animate-card-levitate {
+  animation: card-levitate 3.4s ease-in-out infinite;
 }
