@@ -1,1 +1,1 @@
-export type BadgeColorT = "red" | "purple" | "black";
+export type BadgeColorT = "red" | "purple" | "black" | "white";
