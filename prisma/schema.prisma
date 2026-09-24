@@ -1,13 +1,133 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Get a free hosted Postgres database in seconds: `npx create-db`
-
 generator client {
-  provider = "prisma-client"
-  output   = "../app/generated/prisma"
+  provider = "prisma-client-js"
 }
 
 datasource db {
   provider = "sqlite"
+}
+
+
+// ======================================================
+// AUTH.JS
+// ======================================================
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String    @unique
+  emailVerified DateTime?
+  passwordHash  String
+  image         String?
+  accounts      Account[]
+  sessions      Session[]
+  collection    Collection?
+  packs         Pack[]
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+  @@unique([identifier, token])
+}
+
+
+// ======================================================
+// POKEMON CARDS
+// ======================================================
+
+model Card {
+  id          String   @id @default(cuid())
+  pokemonId   Int
+  name        String
+  rarity      String?
+  imageUrl    String?
+  set         String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  collectionItems CollectionItem[]
+  packItems       PackItem[]
+  @@index([pokemonId])
+  @@index([name])
+}
+
+
+// ======================================================
+// USER COLLECTION
+// ======================================================
+
+model Collection {
+  id        String   @id @default(cuid())
+  userId    String   @unique
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  items     CollectionItem[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model CollectionItem {
+  id           String   @id @default(cuid())
+  collectionId String
+  cardId       String
+  quantity     Int      @default(1)
+  acquiredAt   DateTime @default(now())
+  collection Collection @relation(fields: [collectionId], references: [id], onDelete: Cascade)
+  card       Card       @relation(fields: [cardId], references: [id], onDelete: Cascade)
+  @@unique([collectionId, cardId])
+  @@index([cardId])
+}
+
+
+// ======================================================
+// PACKS
+// ======================================================
+
+model Pack {
+  id        String   @id @default(cuid())
+  userId    String
+  name      String
+  opened    Boolean  @default(false)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  items     PackItem[]
+  createdAt DateTime @default(now())
+  openedAt  DateTime?
+  @@index([userId])
+}
+
+model PackItem {
+  id       String @id @default(cuid())
+  packId   String
+  cardId   String
+  quantity Int    @default(1)
+  pack Pack @relation(fields: [packId], references: [id], onDelete: Cascade)
+  card Card @relation(fields: [cardId], references: [id], onDelete: Cascade)
+  @@unique([packId, cardId])
+  @@index([cardId])
 }

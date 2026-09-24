@@ -1,3 +1,5 @@
+"use client";
+
 import type { TOptions } from "i18next";
 import { getI18n } from "react-i18next";
 

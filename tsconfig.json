@@ -24,6 +24,7 @@
       "@pokemon/*": ["./src/modules/pokemon/*"],
       "@configs/*": ["./src/configs/*"],
       "@i18n/*": ["./src/i18n/*"],
+      "@lib/*": ["./lib/*"],
       "@/*": ["./src/*"],
       "src/*": ["./src/*"]
     }

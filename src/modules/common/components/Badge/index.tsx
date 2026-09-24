@@ -13,6 +13,7 @@ const colorStyles: Record<BadgeColorT, string> = {
   red: "bg-primary text-background",
   purple: "bg-rarity-epic text-background",
   black: "bg-foreground text-background",
+  white: 'bg-surface text-foreground'
 };
 
 export const Badge = forwardRef<HTMLDivElement, IBadgeProps>(

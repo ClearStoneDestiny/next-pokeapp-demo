@@ -1,19 +1,27 @@
 import { Header, Sidebar } from "@common/components";
+import configs from "@configs/index";
+import { prisma } from "@lib/prisma";
+import { getSession } from "@lib/session";
 import { redirect } from "next/navigation";
 
-const isAuthenticated = false;
-
-export default function DashboardLayout({
+export default async function DashboardLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  if (!isAuthenticated) {
-    redirect("/");
+  const session = await getSession();
+
+  if (!session?.userId) {
+    redirect(configs.ROUTES.LOGIN);
+  }
+
+  const user = await prisma.user.findUnique({ where: { id: session.userId } });
+
+  if (!user) {
+    redirect(configs.ROUTES.LOGIN);
   }
 
   // TODO: Replace on real data later
-  const user = 23;
   const progress = 60;
 
   return (
