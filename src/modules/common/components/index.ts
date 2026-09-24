@@ -7,3 +7,4 @@ export { SearchInput } from "./SearchInput";
 export { Typography } from "./Typography";
 export { Header } from "./Header";
 export { Container } from "./Container";
+export { PokemonCard } from "./PokemonCard";
