@@ -1,50 +1,47 @@
 "use client";
 
 import { register } from "@auth/actions/register";
-import { useActionState } from "react";
 import { RegisterFormFields } from "./schema";
 import { useTranslation } from "react-i18next";
+import { AuthForm } from "../AuthForm";
 
 export const RegisterForm = () => {
   const { t } = useTranslation("auth", { keyPrefix: "RegisterForm" });
 
-  const [state, formAction, isPending] = useActionState(register, undefined);
-
   return (
-    <form action={formAction}>
-      <div>
-        <label htmlFor={RegisterFormFields.NAME}>{t("name")}</label>
-        <input
-          id={RegisterFormFields.EMAIL}
-          name={RegisterFormFields.EMAIL}
-          type="text"
-          placeholder={t("name")}
-        />
-        {state?.errors?.email && <p>{state.errors.email[0]}</p>}
-      </div>
-      <div>
-        <label htmlFor={RegisterFormFields.EMAIL}>{t("email")}</label>
-        <input
-          id={RegisterFormFields.EMAIL}
-          name={RegisterFormFields.EMAIL}
-          type="email"
-          placeholder={t("email")}
-        />
-        {state?.errors?.email && <p>{state.errors.email[0]}</p>}
-      </div>
-      <div>
-        <label htmlFor={RegisterFormFields.PASSWORD}>{t("password")}</label>
-        <input
-          id={RegisterFormFields.PASSWORD}
-          name={RegisterFormFields.PASSWORD}
-          type="password"
-        />
-        {state?.errors?.password && <p>{state.errors.password[0]}</p>}
-      </div>
-      {state?.message && <p>{state.message}</p>}
-      <button type="submit" disabled={isPending}>
-        {isPending ? t("signingUp") : t("signUp")}
-      </button>
-    </form>
+    <AuthForm
+      action={register}
+      title={t("title")}
+      description={t("description")}
+      fields={[
+        {
+          name: RegisterFormFields.NAME,
+          label: t("name"),
+          type: "text",
+          placeholder: t("namePlaceholder"),
+          autoComplete: "name",
+        },
+        {
+          name: RegisterFormFields.EMAIL,
+          label: t("email"),
+          type: "email",
+          placeholder: t("emailPlaceholder"),
+          autoComplete: "email",
+        },
+        {
+          name: RegisterFormFields.PASSWORD,
+          label: t("password"),
+          type: "password",
+          placeholder: t("passwordPlaceholder"),
+          autoComplete: "new-password",
+        },
+      ]}
+      checkboxLabel={t("agreement")}
+      checkboxRequired
+      submitLabel={t("signUp")}
+      pendingLabel={t("signingUp")}
+      showPasswordLabel={t("showPassword")}
+      hidePasswordLabel={t("hidePassword")}
+    />
   );
 };

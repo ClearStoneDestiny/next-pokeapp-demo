@@ -1,5 +1,6 @@
 import configs from "@configs/index";
 import * as v from "valibot";
+import type { AuthFormStateT } from "@auth/types/authForm";
 
 export const RegisterFormFields = {
   NAME: "name",
@@ -28,15 +29,6 @@ export const registerFormSchema = v.object({
   ),
 });
 
-export type RegisterFormData = v.InferOutput<typeof registerFormSchema>;
+export type RegisterFormDataT = v.InferOutput<typeof registerFormSchema>;
 
-export type RegisterFormState =
-  | {
-      errors?: {
-        name?: string[];
-        email?: string[];
-        password?: string[];
-      };
-      message?: string;
-    }
-  | undefined;
+export type RegisterFormStateT = AuthFormStateT;
