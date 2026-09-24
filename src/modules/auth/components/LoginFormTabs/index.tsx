@@ -1,7 +1,6 @@
 "use client";
 
 import { LoginFormTypesEnum } from "@auth/enums/loginFormTypes";
-import { Button } from "@common/components";
 import { useTranslation } from "react-i18next";
 
 interface ILoginFormTabsProps {
@@ -33,7 +32,7 @@ export const LoginFormTabs = ({ value, onChange }: ILoginFormTabsProps) => {
         const isActive = value === tab.value;
 
         return (
-          <Button
+          <button
             key={tab.value}
             id={`${tab.value}-tab`}
             role="tab"
@@ -48,7 +47,7 @@ export const LoginFormTabs = ({ value, onChange }: ILoginFormTabsProps) => {
             }`}
           >
             {tab.label}
-          </Button>
+          </button>
         );
       })}
     </div>
