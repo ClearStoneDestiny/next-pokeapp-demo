@@ -12,3 +12,6 @@ export { getEnglishPokemonName } from "./utils/getEnglishPokemonName";
 export { getPokemonRarity } from "./utils/getPokemonRarity";
 export { mapPokemonDetailsToCard } from "./utils/mapPokemonDetailsToCard";
 export { normalizePokemonType } from "./utils/normalizePokemonType";
+
+// Constants
+export { FEATURED_POKEMON_IDENTIFIERS } from "./constants/featuredPokemonIdentifiers";
