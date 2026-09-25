@@ -74,7 +74,7 @@ export const PokemonCard = ({
   return (
     <article
       className={mergeClasses(
-        "h-[200px] w-[170px] overflow-hidden rounded-[16px] border-[3px] border-border-main bg-background text-foreground shadow-[7px_7px_0px_#17161d]",
+        "grid h-[200px] w-[170px] grid-rows-[1fr_3px_49px] overflow-hidden rounded-[16px] border-[3px] border-border-main bg-background text-foreground shadow-[7px_7px_0px_#17161d]",
         levitating && "animate-card-levitate",
         className,
       )}
@@ -84,7 +84,7 @@ export const PokemonCard = ({
         dots
         dotsSize="sm"
         className={mergeClasses(
-          "flex h-[140px] items-center justify-center p-5",
+          "flex h-full items-center justify-center p-5",
           typeBackgroundStyles[type],
         )}
       >
