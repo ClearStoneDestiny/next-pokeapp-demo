@@ -12,5 +12,17 @@
       "collection": "My collection",
       "shop": "Shop"
     }
+  },
+
+  "HeroSection": {
+    "chipTitle": "{{pokemonCount}} species live from PokéAPI",
+    "titleFirstLine": "Open packs.",
+    "titleSecondLine": "Collect cards.",
+    "titleThirdLine": "Fill the dex.",
+    "description": "Cardex turns the entire national dex into a card collection you actually own. Daily packs, five rarity tiers, and a shiny in every hundred or so.",
+    "startButton": "Start free - 1 pack day",
+    "pricingButton": "See pricing",
+    "noCardRequired": "NO CARD REQUIRED",
+    "cancelAnytime": "CANCEL ANYTIME"
   }
 }
