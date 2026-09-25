@@ -1,13 +1,14 @@
 import { LoginActionSection, LoginInfoSection } from "@auth/components";
 import { Container } from "@common/components";
 import { getPokemonDetails } from "@pokemon/data/pokemon/queries";
-import { mapPokemonDetailsToCard } from "@pokemon/index";
-
-const featuredPokemonIdentifiers = ["bulbasaur", "pikachu", "charizard"];
+import {
+  mapPokemonDetailsToCard,
+  FEATURED_POKEMON_IDENTIFIERS,
+} from "@pokemon/index";
 
 export const LoginPage = async () => {
   const pokemonDetails = await Promise.all(
-    featuredPokemonIdentifiers.map((identifier) =>
+    FEATURED_POKEMON_IDENTIFIERS.map((identifier) =>
       getPokemonDetails(identifier),
     ),
   );
